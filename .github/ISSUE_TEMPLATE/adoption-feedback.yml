@@ -1,0 +1,53 @@
+name: Adoption and maintenance feedback
+description: Tell us whether the free Action helped and which recurring maintenance work matters.
+title: "[Feedback] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This issue is public. Do not upload real invoices, bank details, customer data, private repository names, credentials or logs containing invoice values.
+        The local Action is free. The maintenance question below is research about an unbuilt service, not an order, payment request, subscription or delivery commitment.
+  - type: dropdown
+    id: tried
+    attributes:
+      label: Have you tried the Action or CLI?
+      options:
+        - Ran it in a real software workflow
+        - Ran it on synthetic examples only
+        - Have not run it yet
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: What did it catch or fail to solve?
+      description: Use synthetic examples or rule IDs only. If nothing changed between rule packs, say so.
+    validations:
+      required: true
+  - type: textarea
+    id: alternative
+    attributes:
+      label: What do you use instead today?
+      description: A local script, official validator, API provider or another approach is useful context. Describe the recurring effort, if any.
+  - type: dropdown
+    id: maintenance_interest
+    attributes:
+      label: Would maintained rule-pack update PRs and release-diff reports be worth USD99 per month to your team?
+      description: Proposed research concept only. Private-repository permissions, quotas, support and payment terms would need agreement before any paid service could be accepted. No calls required to give feedback.
+      options:
+        - Not interested; free self-hosted tooling is sufficient
+        - Need the maintenance, but USD99 per month is too high
+        - Would consider USD99 per month after seeing an exact scope
+        - Cannot assess without more detail
+    validations:
+      required: true
+  - type: textarea
+    id: missing
+    attributes:
+      label: What would have to be true for paid maintenance to be useful?
+      description: Please identify a specific repeated task and useful acceptance criteria. Avoid private information.
+  - type: input
+    id: source
+    attributes:
+      label: How did you find this project?
+      placeholder: GitHub search, Marketplace, another project or other
