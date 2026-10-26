@@ -36,8 +36,10 @@ multiple locations for one rule, already-invalid baselines, duplicate steps,
 DTD/entity rejection including UTF-16, path symlinks, ZIP traversal,
 checksum tampering, timeouts and stale output invalidation.
 
-An Action manifest and CI workflow are supplied but have not been run on
-GitHub. Linux CLI success is not equivalent to hosted Action verification.
+[GitHub run 1](https://github.com/jclrk279/xrechnung-release-diff/actions/runs/40365013522) passed on October 26, 2026
+for commit `b13b784bf2ce9c2786a9c350ef21a9fd71d58cf4`. It ran all 21 tests and
+the composite Action smoke test, then asserted the expected regression.
+This is hosted workflow evidence, not production readiness or paid demand.
 No external security audit, load test or production guarantee is claimed.
 The README identifies limits and non-sandboxed execution.
 
