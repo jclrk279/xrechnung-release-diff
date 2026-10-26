@@ -4,9 +4,10 @@ Compare the same invoice fixture corpus against two pinned XRechnung rule
 packs. Find newly blocking rules before changing your application's validator
 configuration. Local deterministic processing with KoSIT Validator 1.6.3.
 
-**Status: experimental prototype.** The CLI has been exercised locally with
-the real engine. GitHub-hosted Action execution and Marketplace publication
-have not yet been verified. There is no hosted service or paid subscription.
+**Status: experimental prototype.** [GitHub CI passed](https://github.com/jclrk279/xrechnung-release-diff/actions/runs/40365013522)
+on October 26, 2026: 20 unit tests, one real-engine integration test and the
+composite Action smoke test. Marketplace listing is not yet published.
+There is no hosted service or paid subscription.
 
 ## Reproduce a real rule change
 
@@ -53,7 +54,7 @@ jobs:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
           persist-credentials: false
-      - uses: jclrk279/xrechnung-release-diff@main
+      - uses: jclrk279/xrechnung-release-diff@b13b784bf2ce9c2786a9c350ef21a9fd71d58cf4
         with:
           path: tests/invoice-fixtures
           baseline: '2026-01-31'
@@ -61,8 +62,8 @@ jobs:
           fail-on: regressions
 ```
 
-After publication, prefer a reviewed immutable commit SHA for the remote
-action reference. No issue-writing token or PR comment permissions are needed.
+The example pins the reviewed CI-tested commit. Review updates before
+changing that SHA. No issue-writing token or PR comment permissions are needed.
 The MVP writes a job summary, not PR comments. It neither uploads artifacts
 nor submits SARIF to GitHub code scanning automatically.
 
