@@ -1,0 +1,41 @@
+name: Test pinned rule comparison
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  tests:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Unit and real-engine integration tests
+        env:
+          XRDIFF_INTEGRATION: '1'
+        run: python3 -m unittest discover -s tests -v
+      - name: Action smoke test with expected regression
+        id: demo
+        continue-on-error: true
+        uses: ./
+        with:
+          path: examples
+      - name: Verify regression was detected
+        env:
+          DEMO_OUTCOME: ${{ steps.demo.outcome }}
+        run: |
+          python3 - <<'PY'
+          import json, os
+          from pathlib import Path
+          result = json.loads(Path('xrechnung-diff-results/diff.json').read_text())
+          assert os.environ['DEMO_OUTCOME'] == 'failure'
+          assert result['status'] == 'complete'
+          assert result['regressions'] == 1
+          assert result['candidate_rejections'] == 1
+          PY
