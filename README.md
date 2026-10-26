@@ -116,6 +116,12 @@ Integration tests download the pinned official assets unless already cached.
 No service charge is imposed by this code. Runner and network usage may be
 billable under the user's provider/account terms.
 
+## Feedback
+
+Tried the tool? [Report what it caught and which maintenance work matters](https://github.com/jclrk279/xrechnung-release-diff/issues/new?template=adoption-feedback.yml).
+Please use synthetic examples only. The optional USD99/month maintenance
+question is research about an unbuilt service, not an order or subscription.
+
 ## Project status
 
 Free experimental software, including private-repository use. No hosted
