@@ -1,0 +1,7 @@
+.toolchain/
+.xrdiff-cache/
+demo-output/
+xrechnung-diff-results/
+__pycache__/
+*.pyc
+.env
